@@ -22,17 +22,6 @@
   background: transparent;
 }
 
-/* Mobile menu button (hidden by default) */
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 1001;
-}
-
 /* Brand styles */
 .navbar-brand {
   display: flex;
@@ -143,53 +132,61 @@
   left: 100%;
 }
 
-/* Mobile styles */
+/* Mobile styles - scaling down instead of hamburger menu */
 @media (max-width: 768px) {
   .navbar {
     top: 0;
-    padding: 15px 0;
+    padding: 10px 0;
   }
   
   .navbar-container {
     padding: 0 1rem;
   }
   
-  .mobile-menu-btn {
-    display: block;
+  .navbar-logo {
+    height: 30px;
   }
   
-  .navbar-links, .navbar-cta {
-    display: none;
+  .navbar-name {
+    font-size: 1.2rem;
   }
   
-  .navbar-links.mobile-open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    border-radius: 0;
-    padding: 0;
-    z-index: 1000;
+  .navbar-links {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
   }
   
-  .navbar-cta.mobile-open {
-    display: block;
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1001;
+  .nav-link {
+    font-size: 0.9rem;
   }
   
-  .navbar.scrolled {
-    padding: 10px 0;
+  .navbar-cta {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* For very small screens, you might want to adjust further */
+@media (max-width: 480px) {
+  .navbar-links {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem;
+  }
+  
+  .navbar-cta {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .navbar-name {
+    font-size: 1rem;
+  }
+  
+  .navbar-logo {
+    height: 25px;
   }
 }

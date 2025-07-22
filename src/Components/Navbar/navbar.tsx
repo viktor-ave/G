@@ -4,7 +4,6 @@ import './navbar.css';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,10 +12,6 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -31,24 +26,14 @@ const Navbar: React.FC = () => {
           <span className="navbar-name">Gitau</span>
         </div>
 
-        {/* Mobile menu button */}
-        <button 
-          className="mobile-menu-btn"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
-
         {/* Middle - Navigation Links */}
-        <div className={`navbar-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+        <div className="navbar-links">
           <Link 
             to="home" 
             smooth={true} 
             duration={500} 
             className="nav-link"
             activeClass="active"
-            onClick={() => setMobileMenuOpen(false)}
           >
             Home
           </Link>
@@ -59,7 +44,6 @@ const Navbar: React.FC = () => {
             className="nav-link"
             activeClass="active"
             offset={-80}
-            onClick={() => setMobileMenuOpen(false)}
           >
             About
           </Link>
@@ -70,21 +54,19 @@ const Navbar: React.FC = () => {
             className="nav-link"
             activeClass="active"
             offset={-80}
-            onClick={() => setMobileMenuOpen(false)}
           >
             Services
           </Link>
         </div>
 
         {/* Right side - CTA Button */}
-        <button className={`navbar-cta ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+        <button className="navbar-cta">
           <Link
             to="contact"
             smooth={true}
             duration={500}
             activeClass="active"
             offset={-80}
-            onClick={() => setMobileMenuOpen(false)}
           >
             Book a Call
           </Link>
